@@ -1,0 +1,7 @@
+E:\MediusFlowUndicciTestSolutions\TempLogger\TempLogger\TempLogger\bin\TempLogger.dll
+E:\MediusFlowUndicciTestSolutions\TempLogger\TempLogger\TempLogger\bin\TempLogger.pdb
+E:\MediusFlowUndicciTestSolutions\TempLogger\TempLogger\TempLogger\bin\EntityFramework.dll
+E:\MediusFlowUndicciTestSolutions\TempLogger\TempLogger\TempLogger\bin\EntityFramework.xml
+E:\MediusFlowUndicciTestSolutions\TempLogger\TempLogger\TempLogger\obj\Debug\ResolveAssemblyReference.cache
+E:\MediusFlowUndicciTestSolutions\TempLogger\TempLogger\TempLogger\obj\Debug\TempLogger.dll
+E:\MediusFlowUndicciTestSolutions\TempLogger\TempLogger\TempLogger\obj\Debug\TempLogger.pdb
