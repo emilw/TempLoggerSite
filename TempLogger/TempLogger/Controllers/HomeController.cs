@@ -8,6 +8,7 @@ namespace TempLogger.Controllers
 {
     public class HomeController : Controller
     {
+
         [HttpGet]
         public ActionResult Send(string value)
         {
@@ -23,7 +24,14 @@ namespace TempLogger.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.Message = "Welcome to ASP.NET MVC!";
+            var path = this.Request.MapPath(this.Request.ApplicationPath) + "\\file.txt";
+
+            string text = "No value";
+
+            if(System.IO.File.Exists(path))
+                text = System.IO.File.ReadAllText(path);
+            
+            ViewBag.Message = "The text from the file is: " + text;
 
             return View();
         }
