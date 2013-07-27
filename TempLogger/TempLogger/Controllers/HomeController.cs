@@ -35,14 +35,7 @@ namespace TempLogger.Controllers
         [HttpGet]
         public ActionResult Index(string target)
         {
-            /*var path = this.Request.MapPath(this.Request.ApplicationPath) + "\\file.txt";
-
-            string text = "No value";
-
-            if(System.IO.File.Exists(path))
-                text = System.IO.File.ReadAllText(path);*/
-
-            string text = "No value";
+            string text = "There exists no logged temperatures";
 
             var repository = new TemperatureRepository(this.Request.MapPath(this.Request.ApplicationPath));
 
@@ -50,13 +43,20 @@ namespace TempLogger.Controllers
 
             if (result.Count() != 0)
             {
-                var item = result.FirstOrDefault();
-                text = item.Value + " - " + item.TimeStamp.ToString();
+                var latestTemp = result.FirstOrDefault();
+                var timeAgo = DateTime.Now.Subtract(latestTemp.TimeStamp);
+                var days = timeAgo.Days;
+                var hour = timeAgo.Hours;
+                var minutes = timeAgo.Minutes;
+                var seconds = timeAgo.Seconds;
+
+                var output = "Temperature {0} was logged for {1} day(s), {2} hour(s), {3} minutes and {4} seconds ago";
+                text = string.Format(output, latestTemp.Value, days, hour, minutes, seconds);
             }
 
-            ViewBag.Message = "The latest temperature logged is " + text;
+            ViewBag.Message = text;
 
-            return View();
+            return View(result);
         }
 
         public ActionResult About()
