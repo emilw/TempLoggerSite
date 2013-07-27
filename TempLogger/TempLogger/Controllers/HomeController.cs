@@ -54,6 +54,9 @@ namespace TempLogger.Controllers
                 text = string.Format(output, latestTemp.Value, days, hour, minutes, seconds);
             }
 
+            foreach (var item in result)
+                item.TimeStamp = item.TimeStamp.ToUniversalTime();
+
             ViewBag.Message = text;
 
             return View(result);
